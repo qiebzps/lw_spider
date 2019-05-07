@@ -1,0 +1,63 @@
+<!-- chapter.html-->
+<style type='text/css'>
+.contents{
+    float:left;
+
+    height:1000px;
+    width:20%;
+    white-space:nowrap;
+    overflow:scroll;
+    text-overflow:ellipsis;
+
+    border-style:solid;
+
+}
+.content{
+    height:1000px;
+    width:80%;
+    overflow:scroll;
+    text-overflow:ellipsis;
+    float:right;
+    border-style:solid;
+}
+.header{
+    text-align:center;
+}
+.footer{
+    clear:right;
+    text-align:center;
+}
+</style>
+
+{%extends 'base.html'%}
+
+{%block title%} Welcome to mysite --chapter.html {%endblock%}
+
+{%block headmessage%} 
+<div class='header'>
+    <h1>《{{book.book_name}}》</h1>
+    <br>
+    <h3>{{title}}</h3> 
+</div>
+{%endblock%}
+
+
+{%block content%}
+    <div class="contents">
+        {%for chapter in chapters%}
+            <br>
+            <a href='/book/{{book.book_id}}/{{chapter.chapter_id}}'>
+            {{chapter.chapter_name}}
+            </a>
+        {%endfor%}
+    </div>
+    <div class="content">
+        <p>
+            {{content}}
+        </p>
+    </div>
+    <div class='footer'>
+        <a href='/book/{{book.book_id}}'>目录</a>
+        <a href='/'>回首页</a>
+    </div>
+{%endblock%}

@@ -1,0 +1,19 @@
+<!-- index.html-->
+{%extends 'base.html'%}
+
+{%block title%} Welcome to mysite --index.html {%endblock%}
+
+{%block headmessage%} <h3>本站文章列表</h3> {%endblock%}
+
+{%block content%}
+    {%for i in books%}
+        <p>
+        <a href='/book/{{i.book_id}}'>
+                {{i.book_name}}
+            </a>
+        @
+        {{i.book_author}}
+        <br>
+        </p>
+    {%endfor%}
+{%endblock%}

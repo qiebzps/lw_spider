@@ -1,0 +1,25 @@
+<!-- book.html-->
+{%extends 'base.html'%}
+
+{%block title%} Welcome to mysite --book.html {%endblock%}
+
+{%block headmessage%}<h1>《{{book.book_name}}》</h1> {%endblock%}
+
+{%block content%}
+    <h3>目录</h3>
+    <hr>
+    <p>
+        {{book.book_author}}
+        <br>
+        简&nbsp&nbsp&nbsp&nbsp介：{{book.book_summary}}
+        {%for chapter in chapters%}
+            <br>
+            <a href='/book/{{book.book_id}}/{{chapter.chapter_id}}'> 
+            {{chapter.chapter_name}}
+            </a>
+        {%endfor%}
+    </p>
+    <h3>
+        <a href='/'>回首页</a>
+    </h3>
+{%endblock%}
